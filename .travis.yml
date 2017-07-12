@@ -2,11 +2,29 @@ language: php
 
 sudo: false
 
+cache:
+  directories:
+    - $HOME/.composer/cache/files
+
 php:
   - 7.0
   - 7.1
 
-install: composer install
+matrix:
+  include:
+    - php: 7.0
+      env: dependencies=lowest
+    - php: 7.1
+      env: dependencies=lowest
+    - php: 7.0
+      env: dependencies=highest
+    - php: 7.1
+      env: dependencies=highest
+
+install:
+  - if [ -z "$dependencies" ]; then composer install --prefer-dist; fi;
+  - if [ "$dependencies" = "lowest" ]; then composer update --prefer-dist --prefer-lowest -n; fi;
+  - if [ "$dependencies" = "highest" ]; then composer update --prefer-dist -n; fi;
 
 after_failure: "cat /home/travis/build/ethy/symfony-graphql-php/app/logs/test.log"
 
