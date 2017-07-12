@@ -1,7 +1,8 @@
 {
-    "name": "fabian/cashmate",
-    "license": "proprietary",
+    "name": "ethy/symfony-graphql-php",
+    "license": "MIT",
     "type": "project",
+    "description": "The \"Symfony GraphQL Edition\" distribution",
     "autoload": {
         "psr-4": {
             "AppBundle\\": "src/AppBundle"
@@ -20,7 +21,7 @@
         ]
     },
     "require": {
-        "php": ">=5.5.9",
+        "php": "^7.0",
         "doctrine/doctrine-bundle": "^1.6",
         "doctrine/orm": "^2.5",
         "friendsofsymfony/rest-bundle": "^2.2",
@@ -33,7 +34,7 @@
         "symfony/polyfill-apcu": "^1.0",
         "symfony/swiftmailer-bundle": "^3.0",
         "symfony/symfony": "3.3.*",
-        "twig/twig": "^1.0||^2.0",
+        "twig/twig": "^2.0",
         "webonyx/graphql-php": "^0.9.12"
     },
     "require-dev": {
