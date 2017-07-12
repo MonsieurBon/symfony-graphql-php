@@ -1,0 +1,13 @@
+language: php
+
+sudo: false
+
+php:
+  - 7.0
+  - 7.1
+
+install: composer install
+
+after_failure: "cat /home/travis/build/ethy/symfony-graphql-php/app/logs/test.log"
+
+script: phpunit
